@@ -19,8 +19,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -237,35 +240,77 @@ public class Home extends AppCompatActivity {
             mProgressDialog.show();
 
             Uri uri = data.getData();
-            StorageReference sRef = mStorageRef.child("Selfie").child(Name + uri.getLastPathSegment());
+            final StorageReference sRef = mStorageRef.child("Selfie").child(Name + uri.getLastPathSegment());
 
 
+//
+//
 
-            sRef.putFile(uri,metadata).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+            UploadTask uploadTask = sRef.putFile(uri,metadata);
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(Home.this,"Image Uploaded",Toast.LENGTH_LONG).show();
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
 
-                    Upload upload = new Upload(name.getText().toString().trim(), taskSnapshot.getDownloadUrl().toString());
-
-
-                    //adding an upload to firebase database
-                    String uploadId = mDatabase.push().getKey();
-                    mDatabase.child(uploadId).setValue(upload);
-
-
-                    mProgressDialog.dismiss();
-                    name.setText("");
-                    mobile.setText("");
-                    clg.setText("");
-                    name.requestFocus();
+                    // Continue with the task to get the download URL
+                    return sRef.getDownloadUrl();
                 }
-            }).addOnFailureListener(new OnFailureListener() {
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                 @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(Home.this,"Uh-oh, an error occurred!",Toast.LENGTH_LONG).show();
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString());
+                        String uploadId = mDatabase.push().getKey();
+                        mDatabase.child(uploadId).setValue(upload);
+
+
+                        mProgressDialog.dismiss();
+                        name.setText("");
+                        mobile.setText("");
+                        clg.setText("");
+                        name.requestFocus();
+                    } else {
+                        Toast.makeText(Home.this,"Uh-oh, an error occurred!",Toast.LENGTH_LONG).show();
+                    }
                 }
             });
+
+
+//Starting new implementation of getDownloadUrl
+
+//TODO comment start
+//            sRef.putFile(uri,metadata).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                @Override
+//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                    Toast.makeText(Home.this,"Image Uploaded",Toast.LENGTH_LONG).show();
+//
+//                    Upload upload = new Upload(name.getText().toString().trim(), taskSnapshot.getDownloadUrl().toString());
+//
+//
+//                    //adding an upload to firebase database
+//                    String uploadId = mDatabase.push().getKey();
+//                    mDatabase.child(uploadId).setValue(upload);
+//
+//
+//                    mProgressDialog.dismiss();
+//                    name.setText("");
+//                    mobile.setText("");
+//                    clg.setText("");
+//                    name.requestFocus();
+//                }
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception e) {
+//                    Toast.makeText(Home.this,"Uh-oh, an error occurred!",Toast.LENGTH_LONG).show();
+//                }
+//            });
+
+//            TODO comment end
 
         }
 
