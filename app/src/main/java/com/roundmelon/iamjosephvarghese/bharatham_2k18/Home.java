@@ -84,7 +84,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-//        Typeface bebas = Typeface.createFromAsset(getAssets(),  "fonts/bebasneue.ttf");
+        Typeface bebas = Typeface.createFromAsset(getAssets(),  "fonts/bebasneue.ttf");
 
 
         mSelectImage = (Button) findViewById(R.id.mSelectImage);
@@ -103,16 +103,16 @@ public class Home extends AppCompatActivity {
 
 
 
-//        textView1.setTypeface(bebas);
-//        textView2.setTypeface(bebas);
-//        textView3.setTypeface(bebas);
-//
-//
-//        name.setTypeface(bebas);
-//        mobile.setTypeface(bebas);
-//        clg.setTypeface(bebas);
-//
-//        mSelectImage.setTypeface(bebas);
+        textView1.setTypeface(bebas);
+        textView2.setTypeface(bebas);
+        textView3.setTypeface(bebas);
+
+
+        name.setTypeface(bebas);
+        mobile.setTypeface(bebas);
+        clg.setTypeface(bebas);
+
+        mSelectImage.setTypeface(bebas);
 
 
 
@@ -266,7 +266,7 @@ public class Home extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
 //                        Uri downloadUri = task.getResult();
-                        Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString());
+                        Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString(),0);
                         String uploadId = mDatabase.push().getKey();
                         mDatabase.child(uploadId).setValue(upload);
 
