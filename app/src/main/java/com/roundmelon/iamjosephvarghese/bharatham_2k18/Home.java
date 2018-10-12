@@ -74,6 +74,8 @@ public class Home extends AppCompatActivity {
 
     private int STORAGE_PERMISSION_CODE = 23;
 
+    StorageReference sRef;
+
     FirebaseAuth mAuth;
 
     @Override
@@ -82,7 +84,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-        Typeface bebas = Typeface.createFromAsset(getAssets(),  "fonts/bebasneue.ttf");
+//        Typeface bebas = Typeface.createFromAsset(getAssets(),  "fonts/bebasneue.ttf");
 
 
         mSelectImage = (Button) findViewById(R.id.mSelectImage);
@@ -101,16 +103,16 @@ public class Home extends AppCompatActivity {
 
 
 
-        textView1.setTypeface(bebas);
-        textView2.setTypeface(bebas);
-        textView3.setTypeface(bebas);
-
-
-        name.setTypeface(bebas);
-        mobile.setTypeface(bebas);
-        clg.setTypeface(bebas);
-
-        mSelectImage.setTypeface(bebas);
+//        textView1.setTypeface(bebas);
+//        textView2.setTypeface(bebas);
+//        textView3.setTypeface(bebas);
+//
+//
+//        name.setTypeface(bebas);
+//        mobile.setTypeface(bebas);
+//        clg.setTypeface(bebas);
+//
+//        mSelectImage.setTypeface(bebas);
 
 
 
@@ -119,7 +121,7 @@ public class Home extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        mDatabase = FirebaseDatabase.getInstance().getReference("uploads");
+        mDatabase = FirebaseDatabase.getInstance().getReference("logo_uploads");
 
 
         mSelectImage.setOnClickListener(new View.OnClickListener() {
@@ -219,16 +221,16 @@ public class Home extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null) {
-            // do your stuff
-        } else {
-            signInAnonymously();
-        }
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FirebaseUser user = mAuth.getCurrentUser();
+//        if (user != null) {
+//            // do your stuff
+//        } else {
+//            signInAnonymously();
+//        }
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -240,13 +242,13 @@ public class Home extends AppCompatActivity {
             mProgressDialog.show();
 
             Uri uri = data.getData();
-            final StorageReference sRef = mStorageRef.child("Selfie").child(Name + uri.getLastPathSegment());
+            sRef = mStorageRef.child("Selfie").child(Name + uri.getLastPathSegment());
 
 
 //
 //
 
-
+// TODO again comment
             UploadTask uploadTask = sRef.putFile(uri,metadata);
 
             Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
@@ -263,7 +265,7 @@ public class Home extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
-                        Uri downloadUri = task.getResult();
+//                        Uri downloadUri = task.getResult();
                         Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString());
                         String uploadId = mDatabase.push().getKey();
                         mDatabase.child(uploadId).setValue(upload);
@@ -278,8 +280,19 @@ public class Home extends AppCompatActivity {
                         Toast.makeText(Home.this,"Uh-oh, an error occurred!",Toast.LENGTH_LONG).show();
                     }
                 }
+            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    mProgressDialog.dismiss();
+                    Toast.makeText(Home.this, "success", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    mProgressDialog.dismiss();
+                    Toast.makeText(context, "faliure", Toast.LENGTH_SHORT).show();
+                }
             });
-
 
 //Starting new implementation of getDownloadUrl
 
@@ -315,18 +328,18 @@ public class Home extends AppCompatActivity {
         }
 
     }
-    private void signInAnonymously() {
-        mAuth.signInAnonymously().addOnSuccessListener(this, new  OnSuccessListener<AuthResult>() {
-            @Override
-            public void onSuccess(AuthResult authResult) {
-                // do your stuff
-            }
-        })
-                .addOnFailureListener(this, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        Log.e("FIREBASE", "signInAnonymously:FAILURE", exception);
-                    }
-                });
-    }
+//    private void signInAnonymously() {
+//        mAuth.signInAnonymously().addOnSuccessListener(this, new  OnSuccessListener<AuthResult>() {
+//            @Override
+//            public void onSuccess(AuthResult authResult) {
+//                // do your stuff
+//            }
+//        })
+//                .addOnFailureListener(this, new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception exception) {
+//                        Log.e("FIREBASE", "signInAnonymously:FAILURE", exception);
+//                    }
+//                });
+//    }
 }
