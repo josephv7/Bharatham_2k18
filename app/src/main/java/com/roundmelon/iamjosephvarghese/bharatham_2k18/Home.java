@@ -213,7 +213,7 @@ public class Home extends AppCompatActivity {
             if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
                 //Displaying a toast
-                Toast.makeText(this,"Permission granted.Click Selfie Again.",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Permission granted.Click Upload Again.",Toast.LENGTH_LONG).show();
             }else{
                 //Displaying another toast if permission is not granted
                 Toast.makeText(this,"Oops you just denied the permission",Toast.LENGTH_LONG).show();
