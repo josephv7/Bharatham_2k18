@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -277,20 +278,23 @@ public class Home extends AppCompatActivity {
                         clg.setText("");
                         name.requestFocus();
                     } else {
-                        Toast.makeText(Home.this,"Uh-oh, an error occurred!",Toast.LENGTH_LONG).show();
+//                        Toast.makeText(Home.this,"Uh-oh, an error occurred!",Toast.LENGTH_LONG).show();
                     }
                 }
             }).addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
                     mProgressDialog.dismiss();
-                    Toast.makeText(Home.this, "success", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Home.this, "Logo Uploaded Successfully!", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.rootView),"Upload Sucess", Snackbar.LENGTH_LONG).show();
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     mProgressDialog.dismiss();
-                    Toast.makeText(context, "faliure", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "faliure", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.rootView),"Upload Failed", Snackbar.LENGTH_LONG).show();
                 }
             });
 
