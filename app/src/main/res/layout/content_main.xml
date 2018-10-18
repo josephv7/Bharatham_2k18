@@ -20,7 +20,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="240dp"
         android:scaleType="centerCrop"
         android:src="@drawable/app_logo_f"/>
 
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="2">
 
                 <LinearLayout
                     android:id="@+id/drawable_events"
@@ -73,31 +73,6 @@
                     android:layout_marginVertical="35dp"
                     android:background="@color/line_blue" />
 
-
-                <LinearLayout
-                    android:id="@+id/drawable_event_rules"
-                    style="@style/home_icon_ll"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:onClick="UnderWork"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        style="@style/home_icon_image_view"
-                        android:layout_width="fill_parent"
-                        app:srcCompat="@drawable/ic_rules" />
-
-                    <TextView
-                        style="@style/home_icon_text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Event Rules" />
-                </LinearLayout>
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="35dp"
-                    android:background="@color/line_blue" />
 
 
                 <LinearLayout
