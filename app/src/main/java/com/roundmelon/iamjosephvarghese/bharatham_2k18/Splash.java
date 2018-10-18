@@ -32,7 +32,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent homeIntent = new Intent(Splash.this,Home.class);
+                Intent homeIntent = new Intent(Splash.this,MainActivity.class);
                 startActivity(homeIntent);
                 finish();
             }

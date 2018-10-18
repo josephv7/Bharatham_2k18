@@ -7,4 +7,6 @@
     <color name="blue_dark">#0f2027</color>
     <color name="blue_mid">#203a43</color>
     <color name="blue_light">#2c5364</color>
+
+    <color name="line_blue">#2c5364</color>
 </resources>
