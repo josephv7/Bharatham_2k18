@@ -32,6 +32,14 @@
                     android:id="@+id/insta"
                     android:icon="@drawable/ic_instagram"
                     android:title="Instagram" />
+                <item
+                    android:id="@+id/youtube"
+                    android:icon="@drawable/ic_videos"
+                    android:title="YouTube" />
+                <item
+                    android:id="@+id/website"
+                    android:icon="@drawable/ic_globe"
+                    android:title="Website" />
             </menu>
         </item>
     </group>
