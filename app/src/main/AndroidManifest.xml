@@ -27,7 +27,8 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Youtube" />
-        <activity android:name=".Chart"></activity>
+        <activity android:name=".Chart" />
+        <activity android:name=".Gallery"></activity>
     </application>
 
 </manifest>

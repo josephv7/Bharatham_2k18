@@ -22,7 +22,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout logosubmit,video,liveScore;
+    LinearLayout logosubmit,video,liveScore,gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,15 @@ public class MainActivity extends AppCompatActivity
         video = findViewById(R.id.drawable_videos);
         logosubmit = findViewById(R.id.drawable_logo_sub);
         liveScore = findViewById(R.id.drawable_live_scores);
+        gallery = findViewById(R.id.drawable_gallery);
+
+        gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Gallery.class);
+                startActivity(intent);
+            }
+        });
 
         liveScore.setOnClickListener(new View.OnClickListener() {
             @Override

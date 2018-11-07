@@ -267,10 +267,10 @@ public class Home extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
 //                        Uri downloadUri = task.getResult();
-                        Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString(),0);
+//                        Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString(),0);
                         String uploadId = mDatabase.push().getKey();
-                        mDatabase.child(uploadId).setValue(upload);
-
+//                        mDatabase.child(uploadId).setValue(upload);
+//uncomment
 
                         mProgressDialog.dismiss();
                         name.setText("");
@@ -298,52 +298,9 @@ public class Home extends AppCompatActivity {
                 }
             });
 
-//Starting new implementation of getDownloadUrl
-
-//TODO comment start
-//            sRef.putFile(uri,metadata).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                    Toast.makeText(Home.this,"Image Uploaded",Toast.LENGTH_LONG).show();
-//
-//                    Upload upload = new Upload(name.getText().toString().trim(), taskSnapshot.getDownloadUrl().toString());
-//
-//
-//                    //adding an upload to firebase database
-//                    String uploadId = mDatabase.push().getKey();
-//                    mDatabase.child(uploadId).setValue(upload);
-//
-//
-//                    mProgressDialog.dismiss();
-//                    name.setText("");
-//                    mobile.setText("");
-//                    clg.setText("");
-//                    name.requestFocus();
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//                    Toast.makeText(Home.this,"Uh-oh, an error occurred!",Toast.LENGTH_LONG).show();
-//                }
-//            });
-
-//            TODO comment end
 
         }
 
     }
-//    private void signInAnonymously() {
-//        mAuth.signInAnonymously().addOnSuccessListener(this, new  OnSuccessListener<AuthResult>() {
-//            @Override
-//            public void onSuccess(AuthResult authResult) {
-//                // do your stuff
-//            }
-//        })
-//                .addOnFailureListener(this, new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception exception) {
-//                        Log.e("FIREBASE", "signInAnonymously:FAILURE", exception);
-//                    }
-//                });
-//    }
+
 }
