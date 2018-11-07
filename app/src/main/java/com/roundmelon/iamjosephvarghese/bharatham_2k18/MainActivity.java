@@ -93,6 +93,12 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Download the bharatham app. https://play.google.com/store/apps/details?id=com.roundmelon.iamjosephvarghese.bharatham_2k18&hl=en_IN");
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+
         }else if (id == R.id.fb) {
 
             try {
