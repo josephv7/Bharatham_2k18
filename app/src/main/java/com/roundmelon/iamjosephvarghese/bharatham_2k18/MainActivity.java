@@ -142,6 +142,9 @@ public class MainActivity extends AppCompatActivity
                         Uri.parse("http://instagram.com/bharatham2k18?hl=en")));
             }
 
+        }else if(id == R.id.website){
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://bharatham2k18.in")));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
