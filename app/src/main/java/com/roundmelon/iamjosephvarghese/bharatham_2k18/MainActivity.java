@@ -22,7 +22,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout logosubmit;
+    LinearLayout logosubmit,video;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,18 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        logosubmit = (LinearLayout) findViewById(R.id.drawable_logo_sub);
+
+        video = findViewById(R.id.drawable_videos);
+        logosubmit = findViewById(R.id.drawable_logo_sub);
+
+
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Youtube.class);
+                startActivity(intent);
+            }
+        });
 
         logosubmit.setOnClickListener(new View.OnClickListener() {
             @Override
