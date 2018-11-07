@@ -25,9 +25,11 @@
         <item android:title="Our Social Handles">
             <menu>
                 <item
+                    android:id="@+id/fb"
                     android:icon="@drawable/ic_facebook"
                     android:title="Facebook" />
                 <item
+                    android:id="@+id/insta"
                     android:icon="@drawable/ic_instagram"
                     android:title="Instagram" />
             </menu>

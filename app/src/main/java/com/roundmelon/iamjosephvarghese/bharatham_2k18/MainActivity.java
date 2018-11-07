@@ -1,6 +1,8 @@
 package com.roundmelon.iamjosephvarghese.bharatham_2k18;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -90,6 +92,29 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_bug) {
 
         } else if (id == R.id.nav_share) {
+
+        }else if (id == R.id.fb) {
+
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/169929660582298"));
+                startActivity(intent);
+            } catch (Exception e) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/bharatham2k18/")));
+            }
+
+        }else if (id == R.id.insta) {
+
+            Uri uri = Uri.parse("http://instagram.com/_u/bharatham2k18");
+            Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+            likeIng.setPackage("com.instagram.android");
+
+            try {
+                startActivity(likeIng);
+            } catch (ActivityNotFoundException e) {
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://instagram.com/bharatham2k18?hl=en")));
+            }
 
         }
 
