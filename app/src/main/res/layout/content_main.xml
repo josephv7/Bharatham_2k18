@@ -1,221 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/app_bar_main">
-
-
-    <ImageView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/app_logo_f"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/app_bar_main">
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        card_view:cardCornerRadius="5dp">
-
-        <LinearLayout
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_height="55dp"
+            android:background="@color/colorPrimary" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/backdrop" />
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            card_view:cardCornerRadius="5dp">
 
             <LinearLayout
-                android:id="@+id/linear_row_1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/drawable_events"
-                    style="@style/home_icon_ll"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:onClick="UnderWork"
-                    android:layout_weight="1">
+                    android:id="@+id/linear_row_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-                    <ImageView
-                        style="@style/home_icon_image_view"
-                        android:layout_width="fill_parent"
-                        app:srcCompat="@drawable/ic_menu_manage" />
+                    <LinearLayout
+                        android:id="@+id/drawable_events"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:onClick="UnderWork">
 
-                    <TextView
-                        style="@style/home_icon_text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Events" />
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_menu_manage" />
+
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Events" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="35dp"
+                        android:background="@color/line_blue" />
+
+
+                    <LinearLayout
+                        android:id="@+id/drawable_logo_sub"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_camera_front_black_24dp" />
+
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Selfie Upload" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
                 <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="35dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="25dp"
                     android:background="@color/line_blue" />
 
-
-
                 <LinearLayout
-                    android:id="@+id/drawable_logo_sub"
-                    style="@style/home_icon_ll"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        style="@style/home_icon_image_view"
-                        android:layout_width="fill_parent"
-                        app:srcCompat="@drawable/ic_logo" />
-
-                    <TextView
-                        style="@style/home_icon_text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Logo Submission" />
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="25dp"
-                android:background="@color/line_blue" />
-
-            <LinearLayout
-                android:id="@+id/linear_row_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linear_row_1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:id="@+id/drawable_live_scores"
-                    style="@style/home_icon_ll"
-                    android:layout_width="0dp"
+                    android:id="@+id/linear_row_2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_below="@+id/linear_row_1"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        style="@style/home_icon_image_view"
-                        android:layout_width="fill_parent"
-                        app:srcCompat="@drawable/ic_live_scores" />
-
-                    <TextView
-                        style="@style/home_icon_text_view"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:id="@+id/drawable_live_scores"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Live Scores" />
+                        android:layout_weight="1">
+
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_live_scores" />
+
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Live Scores" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="35dp"
+                        android:background="@color/line_blue" />
+
+                    <LinearLayout
+                        android:id="@+id/drawable_updates"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_update" />
+
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Updates" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="35dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="35dp"
                     android:background="@color/line_blue" />
 
                 <LinearLayout
-                    android:id="@+id/drawable_updates"
-                    style="@style/home_icon_ll"
-                    android:layout_width="0dp"
+                    android:id="@+id/linear_row_3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_below="@+id/linear_row_2"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        style="@style/home_icon_image_view"
-                        android:layout_width="fill_parent"
-                        app:srcCompat="@drawable/ic_update" />
 
-                    <TextView
-                        style="@style/home_icon_text_view"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:id="@+id/drawable_gallery"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Updates" />
-                </LinearLayout>
+                        android:layout_weight="1">
 
-            </LinearLayout>
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_menu_slideshow" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="35dp"
-                android:background="@color/line_blue" />
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gallery" />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linear_row_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linear_row_2"
-                android:orientation="horizontal">
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="35dp"
+                        android:background="@color/line_blue" />
 
-
-                <LinearLayout
-                    android:id="@+id/drawable_gallery"
-                    style="@style/home_icon_ll"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        style="@style/home_icon_image_view"
-                        android:layout_width="fill_parent"
-                        app:srcCompat="@drawable/ic_menu_slideshow" />
-
-                    <TextView
-                        style="@style/home_icon_text_view"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:id="@+id/drawable_videos"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Gallery" />
-                </LinearLayout>
+                        android:layout_weight="1">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="35dp"
-                    android:background="@color/line_blue" />
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_videos" />
 
-                <LinearLayout
-                    android:id="@+id/drawable_videos"
-                    style="@style/home_icon_ll"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        style="@style/home_icon_image_view"
-                        android:layout_width="fill_parent"
-                        app:srcCompat="@drawable/ic_videos" />
-
-                    <TextView
-                        style="@style/home_icon_text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Videos" />
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Videos" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 </ScrollView>
