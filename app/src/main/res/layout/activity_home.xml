@@ -112,7 +112,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
         android:gravity="center_horizontal"
-        android:text="Please do not upload high quality pictures. File size should not exceed 10MB."
+        android:text="File size should not exceed 10MB."
         android:textColor="#ffffff"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
