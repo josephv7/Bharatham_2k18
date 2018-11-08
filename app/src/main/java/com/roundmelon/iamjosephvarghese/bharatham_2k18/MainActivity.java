@@ -165,6 +165,18 @@ public class MainActivity extends AppCompatActivity
         }else if(id == R.id.website){
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://bharatham2k18.in")));
+        }else if(id == R.id.youtube){
+            String url = "https://www.youtube.com/channel/UCvKw6jTBXaNfxsF3iHA1LMw";
+            try {
+                Intent intent =new Intent(Intent.ACTION_VIEW);
+                intent.setPackage("com.google.android.youtube");
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
