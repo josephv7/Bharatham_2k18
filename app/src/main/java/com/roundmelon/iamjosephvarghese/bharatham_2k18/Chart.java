@@ -91,12 +91,13 @@ public class Chart extends AppCompatActivity {
                     //Adding it to a string
 //                    String string = "Name: "+person.getName()+"\nAddress: "+person.getAddress()+"\n\n";
 //                    Log.d("Sna",house.getAll());
-                    oneCharts = house.getAryans();
-                    twoCharts = house.getMughals();
-                    threeCharts = house.getRajputs();
-                    fourCharts = house.getSpartans();
-                    fiveCharts = house.getVikings();
-                    sixCharts = house.getAghoras();
+                    oneCharts = house.getAghoras();
+                    twoCharts = house.getAryans();
+                    threeCharts = house.getMughals();
+                    fourCharts = house.getRajputs();
+                    fiveCharts = house.getSpartans();
+                    sixCharts = house.getVikings();
+
 
 
                     oneChart = Float.parseFloat(oneCharts);
@@ -169,18 +170,18 @@ public class Chart extends AppCompatActivity {
 
 
 
-        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Aryans");
-        barDataSet1.setColor(Color.rgb(131,76,183));
-        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Mughals");
-        barDataSet2.setColor(Color.rgb(233,84,3));
-        BarDataSet barDataSet3 = new BarDataSet(valueSet3, "Rajputs");
-        barDataSet3.setColor(Color.rgb(255,235,59));
-        BarDataSet barDataSet4 = new BarDataSet(valueSet4, "Spartans");
-        barDataSet4.setColor(Color.rgb(183,28,28));
-        BarDataSet barDataSet5 = new BarDataSet(valueSet5, "Vikings");
-        barDataSet5.setColor(Color.rgb(13,71,161));
-        BarDataSet barDataSet6 = new BarDataSet(valueSet6, "aghoras");
-        barDataSet5.setColor(Color.rgb(13,71,161));
+        BarDataSet barDataSet1 = new BarDataSet(valueSet1, "Aghoras");
+        barDataSet1.setColor(Color.rgb(124,62,146));
+        BarDataSet barDataSet2 = new BarDataSet(valueSet2, "Aryans");
+        barDataSet2.setColor(Color.rgb(251,189,10));
+        BarDataSet barDataSet3 = new BarDataSet(valueSet3, "Mughals");
+        barDataSet3.setColor(Color.rgb(237,2,47));
+        BarDataSet barDataSet4 = new BarDataSet(valueSet4, "Rajputs");
+        barDataSet4.setColor(Color.rgb(253,106,4));
+        BarDataSet barDataSet5 = new BarDataSet(valueSet5, "Spartans");
+        barDataSet5.setColor(Color.rgb(237,72,183));
+        BarDataSet barDataSet6 = new BarDataSet(valueSet6, "Vikings");
+        barDataSet6.setColor(Color.rgb(2,43,123));
 
 
 
