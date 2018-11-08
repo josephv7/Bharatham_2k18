@@ -128,7 +128,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_rate) {
-            // Handle the camera action
+            final String appPackageName = getPackageName();
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.roundmelon.iamjosephvarghese.bharatham_2k18")));
+            } catch (android.content.ActivityNotFoundException anfe) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.roundmelon.iamjosephvarghese.bharatham_2k18")));
+            }
+
         } else if (id == R.id.nav_bug) {
 
         } else if (id == R.id.nav_share) {
