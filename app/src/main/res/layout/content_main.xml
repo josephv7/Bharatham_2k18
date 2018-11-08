@@ -215,6 +215,66 @@
                             android:layout_height="wrap_content"
                             android:text="Videos" />
                     </LinearLayout>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="35dp"
+                    android:background="@color/line_blue" />
+
+                <LinearLayout
+                    android:id="@+id/linear_row_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear_row_2"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:id="@+id/drawable__selfie_gallery"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_portrait_black_24dp" />
+
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Selfie Gallery" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="35dp"
+                        android:background="@color/line_blue" />
+
+                    <LinearLayout
+                        android:id="@+id/drawable_website"
+                        style="@style/home_icon_ll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            style="@style/home_icon_image_view"
+                            android:layout_width="fill_parent"
+                            app:srcCompat="@drawable/ic_public_black_24dp" />
+
+                        <TextView
+                            style="@style/home_icon_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Website" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
