@@ -2,11 +2,13 @@ package com.roundmelon.iamjosephvarghese.bharatham_2k18;
 
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
@@ -21,10 +23,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Updates extends AppCompatActivity {
+    
+//    final String[] item_upload = new String[]{"LIGHT_MUSIC_VOCAL_MALE","LIGHT_MUSIC_VOCAL_FEMALE","HINDUSTANI_CLASSICAL_MUSIC","CARNATIC_CLASSICAL_MUSIC","WESTERN_VOCAL_SOLO","MAPPILAPATT","INSTRUMENTAL_MUSIC_STRINGS","INSTRUMENTAL_MUSIC_KEYBOARD","INSTRUMENTAL_MUSIC_PERCUSSION","INSTRUMENTAL_MUSIC_WIND","KADHAPRASANGAM","MONOACT","MIMICRY","FANCY_DRESS","BHARATHANATYAM","MOHINIYATTOM","FOLK_DANCE","ADAPT_TUNE","MOCK_PRESS","ELOCUTION_MALAYALAM","ELOCUTION_ENGLISH","RECITATION_MALAYALAM","RECITATION_ENGLISH","EXTEMPORE_MALAYALAM","EXTEMPORE_ENGLISH","TURN_AROUND","AKSHARASLOGAM","MANGLISH","PHOTOGRAPHY","ON_THE_SPOT_PAINTING","JAM"};
 
 
-    final String[] items_group = new String[]{"ADAPT_TUNE"};
-//    final String[] items_group = new String[]{"ADAPT_TUNE","AKSHARASLOKAM","BHARATHANATYAM","DEBATE_ENGLISH","DEBATE_MALAYALAM","DRAMA","ELOCUTION_ENG","ELOCUTION_MAL","EXTEMPORE_ENG","EXTEMPORE_MAL","FACE_PAINTING","FANCY_DRESS","FLOWER_ARRANGEMENT","FOLK_DANCE","GROUP_DANCE_BOYS","GROUP_SONG_EASTERN","GROUP_SONG_WESTERN","HINDUSTANI_CARNATIC_MUSIC","HINDUSTANI_CLASSICAL_MUSIC","INSTRUMENT_PERCUSSION","INSTRUMENT_WIND","INSTRUMENTAL_MUSIC_KEYBOARD","INSTRUMENTAL_MUSIC_STRINGS","KADHAPRASANGAM","LIGHT_MUSIC_VOCAL_FEMALE","LIGHT_MUSIC_VOCAL_MALE","MANGLISH","MAPPILAPATT","MIME","MIMICRY","MOCK_PRESS","MOHINIYATTOM","MONOACT","MOVIE_SCENE_DUBBING","NOSTALGIA_GIRLS","OLD_MALAYALAM_SONG_DUET","ON_THE_SPOT_PAINTING","PHOTOGRAPHY","QUIZ","RANGOLI","RECITATION_ENG","RECITATION_MAL","SHORTFILM","SYNCHRONIZATION","TABLEAU","THEMATIC_DANCE_GIRLS","THIRUVATHIRA","TURNAROUND","UNPLUGGED","WESTERN_VOCAL_SOLO_MALE_FEMALE","NADAN_PATTU","GAME_OF_THRONES","BHARATHAM_NEWSLETTER","WOLF_OF_KAKKANAD_STREET","POETRY_WRITING_MAL","ESSAY_WRITING_ENG","POSTER_DESIGNING","POETRY_WRITING_ENG","SHORT_STORY_MAL","CARTOON_DRAWING","FILM_REVIEW","ESSAY_WRITING_MAL","PENCIL_DRAWING","SHORT_STORY","PAPER_COLLAGE","GRAFETTI_ART"};
+    final String[] items_group = new String[]{"PAPER_COLLAGE","PENCIL_DRAWING","POSTER_DESIGNING","ESSAY_WRITING_MALAYALAM","ESSAY_WRITING_ENGLISH","SHORT_STORY_WRITING_MALAYALAM","SHORT_STORY_WRITING_ENGLISH","POETRY_WRITING_MALAYALAM","POETRY_WRITING_ENGLISH","FILM_REVIEW_WRITING","TRAVELOGUE","MEME_MAKING","COMICS_STRIP","CARICATURE","THEME_SHOW","DECO","AD_ON","NADAN_PATTU","BAND_OF_BRAHMAS","BATTLE_OF_BANDS","GROUP_SONG_EASTERN","OLD_MELODY_SONG_DUET","NOSTALGIA_GIRLS","THEMATIC_DANCE_GIRLS","PROP_DANCE_BOYS","MIME","THIRUVATHIRA","MARGAM_KALI","VATTAPATTU","SYNCHRONIZATION","DEBATE_MALAYLAM","DEBATE_ENGLISH","QUIZ","DRAMA","TABLEAU","MOVIE_SCENE_DUBBING"," SHORTFILM","MEHANDI_COMPETITION","TREASURE_FROM_TRASH","FACE_PAINTING","WALL_ART","LIGHT_MUSIC_VOCAL_MALE","LIGHT_MUSIC_VOCAL_FEMALE","HINDUSTANI_CLASSICAL_MUSIC","CARNATIC_CLASSICAL_MUSIC","WESTERN_VOCAL_SOLO","MAPPILAPATT","INSTRUMENTAL_MUSIC_STRINGS","INSTRUMENTAL_MUSIC_KEYBOARD","INSTRUMENTAL_MUSIC_PERCUSSION","INSTRUMENTAL_MUSIC_WIND","KADHAPRASANGAM","MONOACT","MIMICRY","FANCY_DRESS","BHARATHANATYAM","MOHINIYATTOM","FOLK_DANCE","ADAPT_TUNE","MOCK_PRESS","ELOCUTION_MALAYALAM","ELOCUTION_ENGLISH","RECITATION_MALAYALAM","RECITATION_ENGLISH","EXTEMPORE_MALAYALAM","EXTEMPORE_ENGLISH","TURN_AROUND","AKSHARASLOGAM","MANGLISH","PHOTOGRAPHY","ON_THE_SPOT_PAINTING","JAM"};
+
     int i = 0;
     int j = 0;
     int k = 0;
@@ -65,6 +69,8 @@ public class Updates extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updates);
 
+//        Toast.makeText(this, Integer.toString(items_group.length), Toast.LENGTH_SHORT).show();
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -78,6 +84,22 @@ public class Updates extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         DatabaseReference final_ref = database.getReference("main/final");
+//        final_ref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Log.d("events_count","countis" + Long.toString(dataSnapshot.getChildrenCount()));
+//                Toast.makeText(Updates.this, Long.toString(dataSnapshot.getChildrenCount()), Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+//        for(int i=0;i< item_upload.length;i++){
+//            final_ref.child(item_upload[i]).setValue("0");
+//        }
 
 
         bebas = Typeface.createFromAsset(getResources().getAssets(),  "fonts/bebasneue.ttf");
