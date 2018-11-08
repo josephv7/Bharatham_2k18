@@ -6,42 +6,41 @@
     android:background="@drawable/main_grad"
     tools:context=".Splash">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bharatham"
-        android:textSize="50sp"
-        android:textColor="#fff"
-        android:layout_centerInParent="true"/>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2k18"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:layout_below="@id/textView"
-        android:layout_centerInParent="true"/>
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:id="@+id/image_banner"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo_trans" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView4"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/image_banner"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:text="2k18"-->
+        <!--android:textColor="#fff"-->
+        <!--android:textSize="25sp" />-->
+
+    <ImageView
         android:id="@+id/hands_below"
-        android:src="@drawable/hands"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_alignParentBottom="true"
         android:scaleType="centerCrop"
-        android:layout_alignParentBottom="true"/>
+        android:src="@drawable/hands"/>
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
-        android:text="Rajagiri School of Engineering &amp; Technology"
-        android:textColor="#fff"
         android:gravity="center_horizontal"
-        android:textSize="12sp"
-        android:id="@+id/textView3"
-        android:layout_alignParentBottom="true"/>
+        android:text="Rajagiri School of Engineering &amp; Technology"
+        android:textColor="#000"
+        android:textSize="12sp" />
 
 
 </RelativeLayout>

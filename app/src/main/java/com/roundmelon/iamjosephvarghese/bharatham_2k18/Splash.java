@@ -16,15 +16,15 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        textView = findViewById(R.id.textView);
+//        textView = findViewById(R.id.textView);
         textView3 = findViewById(R.id.textView3);
-        textView4 = findViewById(R.id.textView4);
+//        textView4 = findViewById(R.id.textView4);
 
         Typeface bebas = Typeface.createFromAsset(getAssets(),  "fonts/bebasneue.ttf");
 
-        textView4.setTypeface(bebas);
+//        textView4.setTypeface(bebas);
         textView3.setTypeface(bebas);
-        textView.setTypeface(bebas);
+//        textView.setTypeface(bebas);
 
 
 
