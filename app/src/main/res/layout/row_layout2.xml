@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="event_name"
-            android:textColor="#2CBCAC"
+            android:textColor="#0f2027"
             android:layout_marginLeft="8dp"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
