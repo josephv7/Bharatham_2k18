@@ -21,7 +21,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout video,liveScore,gallery,updates,selfie;
+    LinearLayout video,liveScore,gallery,updates,selfie,selfie_gallery,website_home,events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,33 @@ public class MainActivity extends AppCompatActivity
         gallery = findViewById(R.id.drawable_gallery);
         updates = findViewById(R.id.drawable_updates);
         selfie = findViewById(R.id.drawable_selfie);
+        selfie_gallery = findViewById(R.id.drawable__selfie_gallery);
+        website_home = findViewById(R.id.drawable_website);
+        events = findViewById(R.id.drawable_events);
+
+        events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Schedule.class);
+                startActivity(intent);
+            }
+        });
+
+        website_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://bharatham2k18.in")));
+            }
+        });
+
+        selfie_gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SelfieGallery.class);
+                startActivity(intent);
+            }
+        });
 
         selfie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,12 +157,20 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_rate) {
             final String appPackageName = getPackageName();
             try {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.roundmelon.iamjosephvarghese.bharatham_2k18")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
             } catch (android.content.ActivityNotFoundException anfe) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.roundmelon.iamjosephvarghese.bharatham_2k18")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
             }
 
+
         } else if (id == R.id.nav_bug) {
+
+            final String appPackageName = getPackageName();
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            } catch (android.content.ActivityNotFoundException anfe) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            }
 
         } else if (id == R.id.nav_share) {
 
@@ -170,7 +205,7 @@ public class MainActivity extends AppCompatActivity
 
         }else if(id == R.id.website){
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://bharatham2k18.in")));
+                    Uri.parse("https://bharatham2k18.in")));
         }else if(id == R.id.youtube){
             String url = "https://www.youtube.com/channel/UCvKw6jTBXaNfxsF3iHA1LMw";
             try {

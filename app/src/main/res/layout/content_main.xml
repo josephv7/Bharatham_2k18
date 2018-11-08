@@ -55,8 +55,7 @@
                         style="@style/home_icon_ll"
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:onClick="UnderWork">
+                        android:layout_weight="1">
 
                         <ImageView
                             style="@style/home_icon_image_view"

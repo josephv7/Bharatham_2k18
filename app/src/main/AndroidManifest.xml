@@ -32,7 +32,8 @@
         <activity
             android:name=".Updates"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity android:name=".SelfieGallery"></activity>
+        <activity android:name=".SelfieGallery" />
+        <activity android:name=".Schedule"></activity>
     </application>
 
 </manifest>
