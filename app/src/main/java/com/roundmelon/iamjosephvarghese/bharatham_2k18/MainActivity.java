@@ -22,7 +22,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout logosubmit,video,liveScore,gallery,updates;
+    LinearLayout video,liveScore,gallery,updates,selfie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +45,19 @@ public class MainActivity extends AppCompatActivity
 
 
         video = findViewById(R.id.drawable_videos);
-        logosubmit = findViewById(R.id.drawable_logo_sub);
         liveScore = findViewById(R.id.drawable_live_scores);
         gallery = findViewById(R.id.drawable_gallery);
         updates = findViewById(R.id.drawable_updates);
+        selfie = findViewById(R.id.drawable_selfie);
+
+        selfie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Home.class);
+                startActivity(intent);
+            }
+        });
+
 
         updates.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +70,7 @@ public class MainActivity extends AppCompatActivity
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Gallery.class);
+                Intent intent = new Intent(MainActivity.this,SelfieGallery.class);
                 startActivity(intent);
             }
         });
@@ -83,12 +92,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        logosubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), Home.class);
-                view.getContext().startActivity(intent);}
-        });
     }
 
 

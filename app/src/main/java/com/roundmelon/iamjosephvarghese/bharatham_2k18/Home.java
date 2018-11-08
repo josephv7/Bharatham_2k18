@@ -122,7 +122,7 @@ public class Home extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        mDatabase = FirebaseDatabase.getInstance().getReference("logo_uploads");
+        mDatabase = FirebaseDatabase.getInstance().getReference("selfie_uploads");
 
 
         mSelectImage.setOnClickListener(new View.OnClickListener() {
@@ -243,7 +243,7 @@ public class Home extends AppCompatActivity {
             mProgressDialog.show();
 
             Uri uri = data.getData();
-            sRef = mStorageRef.child("Selfie").child(Name + uri.getLastPathSegment());
+            sRef = mStorageRef.child("Selfie_Uploads").child(Name + uri.getLastPathSegment());
 
 
 //
@@ -267,9 +267,9 @@ public class Home extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
 //                        Uri downloadUri = task.getResult();
-//                        Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString(),0);
+                        Upload upload = new Upload(name.getText().toString().trim(), task.getResult().toString());
                         String uploadId = mDatabase.push().getKey();
-//                        mDatabase.child(uploadId).setValue(upload);
+                        mDatabase.child(uploadId).setValue(upload);
 //uncomment
 
                         mProgressDialog.dismiss();

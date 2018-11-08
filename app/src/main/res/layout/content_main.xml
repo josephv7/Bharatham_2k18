@@ -78,7 +78,7 @@
 
 
                     <LinearLayout
-                        android:id="@+id/drawable_logo_sub"
+                        android:id="@+id/drawable_selfie"
                         style="@style/home_icon_ll"
                         android:layout_width="0dp"
                         android:layout_height="fill_parent"

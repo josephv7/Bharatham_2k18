@@ -29,8 +29,10 @@
         <activity android:name=".Youtube" />
         <activity android:name=".Chart" />
         <activity android:name=".Gallery" />
-        <activity android:name=".Updates"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity
+            android:name=".Updates"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".SelfieGallery"></activity>
     </application>
 
 </manifest>
