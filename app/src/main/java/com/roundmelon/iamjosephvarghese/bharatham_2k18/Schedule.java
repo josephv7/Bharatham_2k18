@@ -23,6 +23,7 @@ public class Schedule extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("OPEN STAGE"));
         tabLayout.addTab(tabLayout.newTab().setText("LECTURE HALL"));
         tabLayout.addTab(tabLayout.newTab().setText("LECTURE HALL"));
+        tabLayout.addTab(tabLayout.newTab().setText("MULTIMEDIA HALL"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
 
 

@@ -202,6 +202,7 @@ public class Updates extends AppCompatActivity {
 
                             Details details1 = new Details(fname,fclassName,fhouse,fscore,feventName,fposition,fuploader);
                             details_array1.add(details1);
+//                            fname = null;
                         }else {
                             for (DataSnapshot postSnapshot : dataSnapshot.child(items_group[j]).child("first").getChildren()) {
                                 ///gettinng no of first no
@@ -276,6 +277,7 @@ public class Updates extends AppCompatActivity {
 
                             Details details2 = new Details(fname2,fclassName2,fhouse2,fscore2,feventName2,fposition2,fuploader2);
                             details_array2.add(details2);
+//                            fname2 = null;
                         }else {
                             for (DataSnapshot postSnapshot : dataSnapshot.child(items_group[j]).child("second").getChildren()) {
                                 ///gettinng no of first no
@@ -350,6 +352,7 @@ public class Updates extends AppCompatActivity {
 
                             Details details3 = new Details(fname3,fclassName3,fhouse3,fscore3,feventName3,fposition3,fuploader3);
                             details_array3.add(details3);
+//                            fname3 = null;
                         }else {
                             for (DataSnapshot postSnapshot : dataSnapshot.child(items_group[j]).child("third").getChildren()) {
                                 ///gettinng no of first no
